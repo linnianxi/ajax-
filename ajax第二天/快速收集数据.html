@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../lib/jquery.js"></script>
+</head>
+
+<body>
+    <form action="/login" method="GET">
+        <input type="text" name="uname">
+        <input type="password" name="paw">
+        <input type="submit" value="提交" id="btn">
+    </form>
+    <script>
+        $('form').on('submit',function(e){
+          e.preventDefault()
+          var sc = $(this).val()
+          console.log(sc);
+
+        })
+    </script>
+</body>
+
+</html>

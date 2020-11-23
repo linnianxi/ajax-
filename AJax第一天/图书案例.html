@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../lib/bootstrap.css">
+    <script src="../lib/jquery.js"></script>
+</head>
+
+<body>
+    <!-- 添加图书的面板panel -->
+
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">我等你到三十五岁</h3>
+        </div>
+        <div class="panel-body form-inline">
+
+            <div class="input-group">
+                <div class="input-group-addon">书名</div>
+                <input type="text" class="form-control" id="iptbookname" placeholder="请输入书名">
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-addon">作者</div>
+                <input type="text" class="form-control" id="iptauthor" placeholder="请输入作者">
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-addon">出版社</div>
+                <input type="text" class="form-control" id="iptpublisher" placeholder="请输入出版社">
+            </div>
+            <button id="btnAdd" class="btn btn-warning">添加</button>
+        </div>
+
+    </div>
+
+
+
+    <!-- 图书的表格 -->
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>出版社</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr> -->
+        </tbody>
+    </table>
+    <script>
+        // 用ajax写的话，如果获取数据用的是GET，那么就可以省略不写，因为ajax里面的默认获取方式就是GET
+        // 打开页面发送ajax请求
+        function getBooklist(){
+            $.ajax({
+            url: 'http://www.liulongbin.top:3006/api/getbooks',
+            success: function (res) {
+                // console.log(res);
+                // 检测数据是否获取成功
+                if (res.status != 200) return alert('获取数据失败')
+                // 给一空数组
+                var sc = ""
+                // 循环res里面的内容
+                res.data.forEach(function (item, index) {
+                    sc += `<tr>
+     <td>${item.id}</td>
+     <td>${item.bookname}</td>
+     <td>${item.author}</td>
+     <td>${item.publisher}</td>
+     <td><a herf='javascript:;'>删除</a></td>
+     </tr>`
+
+
+                })
+                $('tbody').html(sc)
+            }
+        })
+        }
+
+// 删除功能
+$('tbody').on('click','a',function(){var id =$(this).data('id');
+$.ajax({
+    type:'gey',
+    url:'http://www.liulongbin.top:3006/api/getbooks',
+    data:{
+        id
+    },
+    success:(res)=>{
+        if(res.status!=200) return alert('删除数据失败')
+        getBooklist()
+    }
+})}
+)
+    </script>
+
+</body>
+
+</html>

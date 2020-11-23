@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <form action="">
+       用户名：<input type="text" name="uname">
+       密码：<input type="password" name="pwd">
+       <input type="submit" value="提交">
+   </form>
+   <script>
+       var form = document.querySelector("form")
+       form.addEventListener('submit',function(e){
+           var fd = new FormData()
+           fd.append("age",5)
+           var  xhr = new XMLHttpRequest()
+          xhr.open("post","http://www.liulongbin.top:3006/api/formdata")
+        //   console.log(fd);
+        
+       })
+   </script>
+</body>
+</html>

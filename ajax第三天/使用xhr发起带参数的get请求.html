@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 先是var一个XMLHttpRequest()函数
+     var xhr = new XMLHttpRequest()     //  是浏览器提供的js成员，通过它，可以请求服务器上的数据资源，，主要作用是用于    如果要在网页中请求服务器上的数据资源时，那么就需要用到XMLHttpRequest()这个函数了
+    //  调用open()方式，open()后面传的参数有两个，一个是请求方式，一个是请求地址，默认为异步  在请求地址结束后加上?并且传参，就是希望我们能访问到上传参数所对应ID的内容,ID和后面的数字之间是等号，如果有多的参数，我们可以用&来 隔开就可以
+    // 然后再调用open()方法
+    xhr.open("get","http://www.liulongbin.top:3006/api/getbooks?id=1&bookname='红楼梦'")
+     //   调用send ()函数  调用ajax
+   xhr.send();
+    //  监听onreadystatechange
+xhr.onreadystatechange = function(){
+    //进行一个if假设一下 ()里面的内容是固定写法  xhr.readyState是请求状态    xhr.status是服务器响应状态
+    if(xhr.readyState===4 && xhr.status===200){
+        // alert('数据获取成功')
+        // responseText是服务器响应回来的数据    并且服务器返回来的数据是一个字符串的形式
+        // JSON.parse 是把字符串转换成对象
+        // 
+        var  sc = JSON.parse(xhr.responseText)
+        console.log(sc);
+    }
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../axios.js"></script>
+    <script src="../lib/jquery.js"></script>
+</head>
+<body>
+    <script>
+        // axios也是一个第三=
+axios.get('http://www.liulongbin.top:3006/api/getbooks',{params:{id:1}}).then(function(res){console.log(res.data);});
+axios.post('http://www.liulongbin.top:3006/api/addbook',{bookname:'hello',author:'123',publisher:'shanghai出版社'}).then(function(res){
+    console.log(res.data);
+})
+    </script>
+</body>
+</html>

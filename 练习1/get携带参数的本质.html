@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get携带参数的本质</title>
+    <script src="../lib/jquery.js"></script>
+</head>
+<body>
+    <script>
+// 使用get发起带参数的请求时，get()里面包含了3个参数，一个是URI地址，一个是date对象，还有一个回调函数  URI地址要用引号，date{}里面的汉字需要引号，回调函数需要一个变量接受，一般取名为res
+
+
+// $.get()方法
+$.get('http://www.liulongbin.top:3006/api/getbooks',{id:1,bookname:'西游记'},function(res){
+console.log(res);
+})
+
+
+$.ajax方法
+$.ajax({
+    method:'get',
+    url:'http://www.liulongbin.top:3006/api/getbooks',
+     data:{     //这里一定是data
+        id:1,
+        bookname:'西游记'
+    },
+    success:function(res){
+console.log(res);
+    }
+})
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 正则对象的方法
+        // 正则表达式 test(字符串)
+        // 正则表达式 exec(字符串)
+
+
+        // 字符串方法
+        // 字符串 match()
+        // 字符串 replace()
+        // 字符串 split()
+        // 字符串 search()
+
+        // 这是text方法
+        // let str = 'htis is a ES6 that is a H5';  // 这是一个普通的变量
+        // let reg = /[a-z]/g   // 这是一个正则表达式写法
+        // console.log(reg.test(str)); // 检测变量str里面是否有包含a-z之间的任何一个字母，只要包含了，那么返回的结果就是true
+
+        // 正则表达式 exec(字符串)
+        let str ='2345 1122 5678 8990'  // 普通变量
+        let reg =/\d\d\d\d/g;  //  /\d{4}/g;//  /[0-9]{4}/g;   g是全局匹配 
+        console.log(reg.exec(str));
+        console.log(reg.exec(str));
+        console.log(reg.exec(str));
+        console.log(reg.exec(str));
+        console.log(reg.exec(str));
+    </script>
+</body>
+</html>

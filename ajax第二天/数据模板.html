@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../template-web.js"></script>
+</head>
+
+<body>
+    <script type="text/html" id="tpi">
+<h3>用户信息</h3>
+<div>用户名:<span>{{name}}</span></div>
+<div>年龄:<span>{{age}}</span></div>
+<div>婚否:<span>{{isMarry?"已婚":"未婚"}}</span></div>
+<div>{{data | dataFormat}}</div>
+<div>
+    {{if age>27}}
+    可以结婚
+    {{else}}
+   不可以结婚
+    {{/if}}
+</div>
+<ul>
+    {{each hobby  }}
+
+    <li>{{$index}},{{$value}}</li>
+    {{/each}}
+</ul>
+   </script>
+
+
+    <script>
+        template.defaults.imports.dataFormat = function (date) {
+            // console.log(date);
+            var y = date.getFullYear()
+            var m = date.getMonth() + 1
+            var d = date.getDate()
+            return `${y}-${m}-${d}`
+        }
+        var data = {
+            name: '超超',
+            age: 27,
+            isMarry: false,
+            data: new Date,
+            hobby: ["coding", "singing", "dancing"]
+        }
+        var html = template('tpi', data);
+        document.body.innerHTML = html
+
+    </script>
+</body>
+
+</html>

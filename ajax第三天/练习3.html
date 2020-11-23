@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // sz是一个二进制对象
+        var sz = new FormData()
+        // console.log(sz);
+        sz.append("uname","zs")
+        sz.append("upwd",123456)
+        console.log(sz);
+        var xhr = new XMLHttpRequest()
+        xhr.open("post","http://www.liulongbin.top:3006/api/formdata")
+        xhr.send(sz)
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState==4 && xhr.status==200){
+        console.log(JSON.parse(xhr.responseText)); 
+            }
+        }
+    </script>
+</body>
+</html>

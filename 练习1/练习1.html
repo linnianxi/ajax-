@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 先创建xhr对象
+      var xhr =  new XMLHttpRequest();
+        // 调用open()函数
+        xhr.open("get","http:www.liulongbin.top:3006/api/getbooks?id=1&id=2")
+        // 调用send()函数 发起ajax请求
+        xhr.send()
+        // 监听  事件源将要发生改变事件  onreadystatechange 
+        xhr.onreadystatechange = function(){
+            // 进行if比较  if比较里面用的是固定写法
+            if(xhr.readyState===4&xhr.status===200){
+                // responesText是服务器返回给客户端的数据
+                console.log(JSON.parse(xhr.responseText));
+            }  
+        }
+    </script>
+</body>
+</html>

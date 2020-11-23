@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../template-web.js"></script>
+    <script src="../lib/jquery.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <!-- 模板的html结构必须定义到script中 -->
+    <script type="text/html" id="tpi-user">
+        <h1>{{name}}---------{{age}}</h1>
+        <!-- 想要获取li里面的数据，就要在test前面加@ -->
+        {{@ test}}
+    </script>
+    <script>
+        // 定义需要渲染的数据
+        var date = {name:'超超',age:27,test:'<li>桃李春风一壶酒</li>'}
+        // 调用template函数
+        var sc = template("tpi-user",date)
+        console.log(sc);
+        // 渲染html结构
+        $("#container").html(sc)
+    </script>
+</body>
+</html>
