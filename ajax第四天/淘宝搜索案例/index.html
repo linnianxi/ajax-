@@ -107,6 +107,12 @@
 
     // 键盘弹起事件
     $(function(){
+      // 全局申请一个定时器
+      var timer = null
+      // 清空定时器的函数
+      function debounceSearch(keyword){
+       timer =setTimeout(function(keyword){},500)
+      }
       $("#ipt").on("keyup",function(){
       var keyword = $(this).val().trim()
       // if(keyword<=0){
